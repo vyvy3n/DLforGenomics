@@ -1,7 +1,7 @@
 # Deep Learning Applications for Genomics
 
 - `papers` floder consists of papers I read.
-- `readings` folder consists of introductory or lecture notes for me to learn.
+- `readings` folder consists of introductory papers or lecture notes for me to learn.
 
 ## Useful Resources:
 - [Deep Learning in Genomics and Biomedicine, Stanford CS273B](https://canvas.stanford.edu/courses/51037)
