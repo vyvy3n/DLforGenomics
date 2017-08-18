@@ -8,11 +8,11 @@
 - [A List of DL in Biology on Github]( https://github.com/hussius/deeplearning-biology)
 - [A List of DL in Biology](https://followthedata.wordpress.com/2015/12/21/list-of-deep-learning-implementations-in-biology/)
 
-**Contents**
+## **Contents**
 
-[08/17/2017 DanQ: CNN 1 layer+BLSTM](#08172017-danq-cnn-1-layerblstm)
+[08/17/2017](#08172017-danq-cnn-1-layerblstm) DanQ: CNN 1 layer+BLSTM
 
-### 08/17/2017 DanQ: CNN 1 layer+BLSTM
+## 08/17/2017 DanQ: CNN 1 layer+BLSTM
 
 Quang D, Xie X. [DanQ: a hybrid convolutional and recurrent deep neural network for quantifying the function of DNA sequences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4914104/)[J]. Nucleic acids research, 2016, 44(11): e107-e107.
 
