@@ -9,13 +9,8 @@
 - [A List of DL in Biology](https://followthedata.wordpress.com/2015/12/21/list-of-deep-learning-implementations-in-biology/)
 
 **Contents**
-[aa](#aa)
 
-
-
-### aa
-
-[08/17/2017](#08/17/2017) DanQ: CNN 1 layer+BLSTM 
+[08/17/2017 DanQ: CNN 1 layer+BLSTM](#08172017-danq-cnn-1-layerblstm)
 
 ### 08/17/2017 DanQ: CNN 1 layer+BLSTM
 
