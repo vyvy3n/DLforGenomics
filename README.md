@@ -3,12 +3,12 @@
 - `papers` floder consists of papers I read.
 - `readings` folder consists of introductory papers or lecture notes for me to learn.
 
-## Useful Resources:
+# Useful Resources:
 - [Deep Learning in Genomics and Biomedicine, Stanford CS273B](https://canvas.stanford.edu/courses/51037)
 - [A List of DL in Biology on Github]( https://github.com/hussius/deeplearning-biology)
 - [A List of DL in Biology](https://followthedata.wordpress.com/2015/12/21/list-of-deep-learning-implementations-in-biology/)
 
-## **Contents**
+# **Contents**
 
 [08/17/2017](#08172017-danq-cnn-1-layerblstm) DanQ: CNN 1 layer+BLSTM
 
