@@ -10,9 +10,11 @@
 
 # **Contents**
 
-[08/16](#0816-danq-cnn-1-layerblstm) DanQ: CNN 1 layer+BLSTM
+[08/16 DanQ: CNN 1 layer+BLSTM](#0816-danq-cnn-1-layerblstm)
 
-[08/17](#0817-deepcpg-combine-2-cnn-sub-models) DeepCpG-combine 2 CNN sub-models
+[08/17 DeepCpG-combine 2 CNN sub-models](#0817-deepcpg-combine-2-cnn-sub-models)
+
+[08/18 DeepNano](#0818-deepnano)
 
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
@@ -84,7 +86,7 @@ Angermueller, Christof, Heather J. Lee, Wolf Reik, and Oliver Stegle. [*DeepCpG:
 
 ### Model Layers
 
-**The idea of this paper is similar to DeepMixedModel , they take advantage of two sub-models and use a fusion module to combine the two,**  referred as `modular architecture` in the paper.
+**The idea of this paper is similar to DeepMixedModel , they take advantage of two sub-models and use a fusion module to combine the two,**  referred as `modular architecture` in the paper. Both the input and the purpose of two sub-models are different.
 
 The model is comprised of a 
 
@@ -134,7 +136,7 @@ The two are combined by a
   - reduces required sequencing depth in single-cell bisulfite sequencing studies, thereby enabling assaying larger numbers of cells at lower cost. 
 
 
-# 08/17 DeepNano
+# 08/18 DeepNano
 
 Boža V, Brejová B, Vinař T. DeepNano: [Deep recurrent neural networks for base calling in MinION nanopore reads](https://arxiv.org/abs/1603.09195)[J]. PloS one, 2017, 12(6): e0178751.
 
