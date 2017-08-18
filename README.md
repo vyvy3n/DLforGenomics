@@ -12,7 +12,7 @@
 
 [08/16 DanQ: CNN 1 layer+BLSTM](#0816-danq-cnn-1-layerblstm)
 
-[08/17 DeepCpG-combine 2 CNN sub-models](#0817-deepcpg-combine-2-cnn-sub-models)
+[08/17 DeepCpG: combine 2 CNN sub-models](#0817-deepcpg-combine-2-cnn-sub-models)
 
 [08/18 DeepNano](#0818-deepnano)
 
@@ -69,7 +69,7 @@ DanQ is a powerful method for predicting the function of DNA directly from seque
 - DanQ is often compared with DeepSEA, they share datasets, and there are comparison results in DanQ paper.
 
 
-# 08/17 DeepCpG-combine 2 CNN sub-models
+# 08/17 DeepCpG: combine 2 CNN sub-models
 Angermueller, Christof, Heather J. Lee, Wolf Reik, and Oliver Stegle. [*DeepCpG: Accurate Prediction of Single-Cell DNA Methylation States Using Deep Learning.*](http://www.biorxiv.org/content/early/2016/05/27/055715) Genome Biology 18 (April 11, 2017): 67. doi:10.1186/s13059-017-1189-z.
 
 ### Introduction
