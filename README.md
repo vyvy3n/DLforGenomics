@@ -10,8 +10,9 @@
 
 # **Contents**
 
-[08/16/2017](#08172017-danq-cnn-1-layerblstm) DanQ: CNN 1 layer+BLSTM
-[08/17/2017](#0817-deepcpg-combine-2-cnn-sub-models) DeepCpG-combine 2 CNN sub-models
+[08/16](#0817-danq-cnn-1-layerblstm) DanQ: CNN 1 layer+BLSTM
+
+[08/17](#0817-deepcpg-combine-2-cnn-sub-models) DeepCpG-combine 2 CNN sub-models
 
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
@@ -103,8 +104,7 @@ The model is comprised of a
 
 The two are combined by a
 - `Fusion module`: integrates the evidence from the CpG and DNA module to predict
-- - models interactions between higher-level features derived form the DNA and CpG 
-
+  - models interactions between higher-level features derived form the DNA and CpG 
 
 
 ![image](./figures/0817-deepCpG.png)
