@@ -63,3 +63,78 @@ DanQ is a powerful method for predicting the function of DNA directly from seque
 
 
 - DanQ is often compared with DeepSEA, they share datasets, and there are comparison results in DanQ paper.
+
+
+# 08/17 DeepCpG-combine 2 CNN sub-models
+Angermueller, Christof, Heather J. Lee, Wolf Reik, and Oliver Stegle. [*DeepCpG: Accurate Prediction of Single-Cell DNA Methylation States Using Deep Learning.*](http://www.biorxiv.org/content/early/2016/05/27/055715) Genome Biology 18 (April 11, 2017): 67. doi:10.1186/s13059-017-1189-z.
+
+### Introduction
+
+**Purpose**: Predicting DNA methylation states from DNA sequence and *incomplete methylation* profiles in *single cells*.
+
+**Background**: Current protocolsd for assaying DNA methylation in single cells are limited by incomplete CpG coverage. Therefore, finding methods to predict missing methylation states are critical to enable genome-wide analyses. 
+
+**Strength**
+
+- Existing approaches *do not account for cell-to-cell* variability, which is critical for studying epigenetic diversity, though are able to predict average DNA methylation profiles in cell populations.
+- Existing approaches require *a priori defined features* and genome annotations, which are typically limited to a narrow set of cell types and conditions.
+- A *modular architecture*: do not separate the extraction of DNA sequence features and model training
+
+### Model Layers
+
+**The idea of this paper is similar to DeepMixedModel , they take advantage of two sub-models and use a fusion module to combine the two,**  referred as `modular architecture` in the paper.
+
+The model is comprised of a 
+
+- `CpG module`: accounts for correlations between CpG sites within and across cells
+
+  - Input: Sparse single-cell CpG profiles, where
+
+    `1`: Methylated CpG sites are denoted by ones
+
+    `0`: unmethylated CpG sites by zero
+
+    `?`: CpG sites with missing methylation state by question marks
+
+- `DNA module`(conv+pool): detects informative sequence patterns (predictive sequence motifs)
+
+  - Identifies patters in the CpG neighbourhood across multiple cells, using cell-specific convolution and pooling operations (rows in b)
+
+The two are combined by a
+- `Fusion module`: integrates the evidence from the CpG and DNA module to predict
+- - models interactions between higher-level features derived form the DNA and CpG 
+
+
+
+![image](./figures/0817-deepCpG.png)
+
+
+### Model Details
+
+- Regularization: Elastic Net + Dropout
+- mini-batch with SDG
+- Theano with Keras
+- Training time: 31h = 15h(CpG)+12h(DNA)+4h(fusion)
+### Multiple applications of their methods:
+- Predict single-cell methylation states / impute missing methylation states
+- Analyze the effect of DNA sequence features on DNA methylation and investigate effects of DNA mutations and neighbouring CpG sites on CpG methylation:
+  - Discover methylation-associated motifs (conv+pooling)
+  - Estimating the effect of single nucleotide mutations on CpG methylation
+  - Quantify the effect of epimutations on neighbouring CpG sites, finding a clear relationship between distance and the mutational effect
+
+- Discove DNA sequence motifs that are associated with epigenetic variability
+
+### Comments
+
+- As stated in the paper, the convolutional architecture allows for discovering predictive motifs in larger DNA sequence contexts, as well as for capturing complex methylation patterns in neighbouring CpG sites. (I think the idea is adopted from image processing by DL)
+- Modular Architecture
+- Contribution: Facilitate the assaying of larger number of cells by
+  - enables analysis on low-coverage single-cell methylation data. The accurate imputation of missing methylation states facilitate genome-wide downstream analyses.
+  - reduces required sequencing depth in single-cell bisulfite sequencing studies, thereby enabling assaying larger numbers of cells at lower cost. 
+
+
+# 08/17 DeepNano
+
+Boža V, Brejová B, Vinař T. DeepNano: [Deep recurrent neural networks for base calling in MinION nanopore reads](https://arxiv.org/abs/1603.09195)[J]. PloS one, 2017, 12(6): e0178751.
+
+
