@@ -14,7 +14,7 @@
 
 [08/17 DeepCpG: combine 2 CNN sub-models](#0817-deepcpg-combine-2-cnn-sub-models)
 
-[08/18 DeepNano](#0818-deepnano-simply-blsm)
+[08/18 DeepNano: simply BLSTM](#0818-deepnano-simply-blstm)
 
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
