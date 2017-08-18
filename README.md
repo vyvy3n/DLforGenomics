@@ -10,7 +10,7 @@
 
 **Contents**
 
-[08/17/2017](08/17/2017) DanQ: CNN 1 layer+BLSTM
+[08/17/2017 DanQ: CNN 1 layer+BLSTM](08/17/2017 DanQ: CNN 1 layer+BLSTM) 
 
 ### 08/17/2017 DanQ: CNN 1 layer+BLSTM
 
