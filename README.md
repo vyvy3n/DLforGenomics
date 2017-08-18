@@ -10,7 +10,7 @@
 
 # **Contents**
 
-[08/16](#0817-danq-cnn-1-layerblstm) DanQ: CNN 1 layer+BLSTM
+[08/16](#0816-danq-cnn-1-layerblstm) DanQ: CNN 1 layer+BLSTM
 
 [08/17](#0817-deepcpg-combine-2-cnn-sub-models) DeepCpG-combine 2 CNN sub-models
 
