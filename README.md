@@ -14,7 +14,7 @@
 
 [08/17 DeepCpG: combine 2 CNN sub-models](#0817-deepcpg-combine-2-cnn-sub-models)
 
-[08/18 DeepNano](#0818-deepnano)
+[08/18 DeepNano](#0818-deepnano-simply-blsm)
 
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
@@ -136,8 +136,36 @@ The two are combined by a
   - reduces required sequencing depth in single-cell bisulfite sequencing studies, thereby enabling assaying larger numbers of cells at lower cost. 
 
 
-# 08/18 DeepNano
+# 08/18 DeepNano: simply BLSTM
 
 Boža V, Brejová B, Vinař T. DeepNano: [Deep recurrent neural networks for base calling in MinION nanopore reads](https://arxiv.org/abs/1603.09195)[J]. PloS one, 2017, 12(6): e0178751.
 
+### Introduction
+The [MinION device by Oxford Nanopore](https://nanoporetech.com/products/minion) is the first portable sequencing device. The papre presents the first open-source DNA base caller for MinION](http://compbio.fmph.uniba.sk/deepnano/). They employ carefully crafted RNNs to improves the base calling accuracy compared to the default base caller supplied by the manufacturer and hence reduce the sequencing error rate. 
 
+### Model
+
+##### Bidirectional-LSTM
+
+- LSTM: potentially captures long-distance dependencies
+  in the data, whereas HMMs(used by Metrichor, default base caller of MinION) use fixed k-mers.
+- Bidirection: the prediction for input vector can be influenced by both data seen before and after it.
+
+For 1D base calling: 3 hidden layers with 100 hidden units in each layer;
+
+For 2D base calling: 3 hidden layers with 250 hidden units in each layer;
+
+##### Challenge
+
+The correspondence between the outputs and individual events is unknown. They only know the region of the reference sequence where the read is aligned . The problem is solved by simple heuristic and maximum likelihood. 
+
+### Details
+- Theano
+- Optimization: SGD+Nesterov momentum; 
+- Optimization: For 2D, they switch L-BFGS after several iterations
+  - Their experience suggests that SGD is better at avoiding bad local optima in the initial phases of training, while L-BFGS seems to be faster during the final fine-tuning.
+- They didn't adopt regularization methods, but the results suggest there is almost no overfitting.
+### Comments
+- They datasets for the reserch is not very large.
+- They only use simple BLSTM. They think of future work on more elaborate network strucutres, but the training will then become time-consuming.
+- The techniques they deal with alignment of outputs and individual events could be further  improved.
