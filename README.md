@@ -10,9 +10,10 @@
 
 # **Contents**
 
-[08/17/2017](#08172017-danq-cnn-1-layerblstm) DanQ: CNN 1 layer+BLSTM
+[08/16/2017](#08172017-danq-cnn-1-layerblstm) DanQ: CNN 1 layer+BLSTM
+[08/17/2017](#0817-deepcpg-combine-2-cnn-sub-models) DeepCpG-combine 2 CNN sub-models
 
-# 08/17/2017 DanQ: CNN 1 layer+BLSTM
+# 08/16 DanQ: CNN 1 layer+BLSTM
 
 Quang D, Xie X. [DanQ: a hybrid convolutional and recurrent deep neural network for quantifying the function of DNA sequences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4914104/)[J]. Nucleic acids research, 2016, 44(11): e107-e107.
 
