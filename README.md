@@ -16,6 +16,10 @@
 
 [08/18 DeepNano: simply BLSTM](#0818-deepnano-simply-blstm)
 
+[08/18 DeepSEA: noncoding variants with CNN sequence model](#0818-deepsea-noncoding-variants-with-cnn-sequnce-model)
+
+[08/18 Basset: CNN-learn functional activities of DNA sequences](#0818-basset-cnn-learn-functional-activities-of-dna-sequences)
+
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
 Quang D, Xie X. [DanQ: a hybrid convolutional and recurrent deep neural network for quantifying the function of DNA sequences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4914104/)[J]. Nucleic acids research, 2016, 44(11): e107-e107.
@@ -175,7 +179,7 @@ Zhou, J., & Troyanskaya, O. G. (2015). [Predicting effects of noncoding variants
 ### Introduction
 Noncoding genomic variations constitute the majority of disease and other trait-associated single-nucleotide polymorphisms (SNPs), but characterizing their functional effects remains a challenge.
 
-The paper presents a deep learning-based algorithmic framework, [DeepSEA](http://deepsea.princeton.edu/job/analysis/create/),  for predicting the chromatin effects of sequence alterations with single nucleotide sensitivity. DeepSEA’s capability of utilizing flanking context sequences information enables context-specific sequence feature extraction, Sequence Profiler, which performs "in silico saturated mutagenesis" analysis for discovering informative sequence features within any sequence. 
+The deep learning-based algorithmic framework [DeepSEA](http://deepsea.princeton.edu/job/analysis/create/) can predict the chromatin effects of sequence alterations with single nucleotide sensitivity. DeepSEA’s capability of utilizing flanking context sequences information enables context-specific sequence feature extraction, Sequence Profiler, which performs "in silico saturated mutagenesis" analysis for discovering informative sequence features within any sequence.
 
 ### Model
 - DeepSEA uses classic CNN model, three convolution layers with 320, 480 and 960 kernels, respectively. The output is scaled by Sigmoid function.
@@ -185,7 +189,7 @@ The paper presents a deep learning-based algorithmic framework, [DeepSEA](http:/
 ### Comments
 Large amount of data and sufficent experiments on applications account for their success.
 
-# 08/18 Basset: CNN
+# 08/18 Basset: CNN-learn functional activities of DNA sequences
 Kelley DR, Snoek J, Rinn JL. [Basset: learning the regulatory code of the accessible genome with deep convolutional neural networks](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4937568/). Genome Research. 2016;26(7):990-999. doi:10.1101/gr.200535.115.
 
 ### Introduction
@@ -197,14 +201,14 @@ It enables researchers to perform single sequencing assay in their cell type of 
 The basic structure is the same as DeepSEA, 3 layer CNNs(max pool+ReLU), with sigmoid nonlinearity maps performed on the output layer.
 ### Experiments and applications
 - DNA sequence analysis: predicts the cell-specific functional activity  of sequences
-- - Basset outperforms gkm-SVM on predicting the accessibility of a set of test sequences in 164 cell types.
+  - Basset outperforms gkm-SVM on predicting the accessibility of a set of test sequences in 164 cell types.
 - Recover unknown protein binding motifs
 - *In silico saturation mutagenesis pinpoints nucleotides
   driving accessibility*: 
   - Saturation mutagenesis experiments, in which every mutation to a sequence is tested, are a powerful tool for dissecting the exact nucleotides driving a functional activity. 
   - use Basset to predicte accessibility for mutated sequences
 - Enable genomic variant interpretation
-- - *Basset predicts greater accessibility changes for likely causal GWAS SNPs*: Basset assigns greater SNP accessibility difference (SAD) scores to likely causal GWAS SNPs (PICS probability >0.5) versus unlikely nearby SNPs 
+  - *Basset predicts greater accessibility changes for likely causal GWAS SNPs*: Basset assigns greater SNP accessibility difference (SAD) scores to likely causal GWAS SNPs (PICS probability >0.5) versus unlikely nearby SNPs 
 - Basset performs better if the model is trained on data from appropriate cell type instead of large-scale mapping projects
 ### Discussion
 
@@ -216,4 +220,4 @@ Predicting the functional output of DNA sequences is a fundamental problem in co
   the dimensionality of the raw input space to which the sequence
   is initially mapped. 
 
-In contrast, CNNs  naturally consider positional relationships between sequence signals and is computational efficient.
+In contrast, CNNs naturally consider positional relationships between sequence signals and is computational efficient.
