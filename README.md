@@ -169,3 +169,51 @@ The correspondence between the outputs and individual events is unknown. They on
 - They datasets for the reserch is not very large.
 - They only use simple BLSTM. They think of future work on more elaborate network strucutres, but the training will then become time-consuming.
 - The techniques they deal with alignment of outputs and individual events could be further  improved.
+
+# 08/18 DeepSEA: noncoding variants with CNN sequnce model
+Zhou, J., & Troyanskaya, O. G. (2015). [Predicting effects of noncoding variants with deep learning–based sequence model](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4768299/). Nature Methods, 12(10), 931–934. http://doi.org/10.1038/nmeth.3547
+### Introduction
+Noncoding genomic variations constitute the majority of disease and other trait-associated single-nucleotide polymorphisms (SNPs), but characterizing their functional effects remains a challenge.
+
+The paper presents a deep learning-based algorithmic framework, [DeepSEA](http://deepsea.princeton.edu/job/analysis/create/),  for predicting the chromatin effects of sequence alterations with single nucleotide sensitivity. DeepSEA’s capability of utilizing flanking context sequences information enables context-specific sequence feature extraction, Sequence Profiler, which performs "in silico saturated mutagenesis" analysis for discovering informative sequence features within any sequence. 
+
+### Model
+- DeepSEA uses classic CNN model, three convolution layers with 320, 480 and 960 kernels, respectively. The output is scaled by Sigmoid function.
+- L-2 norm penalty of network weights matirx, L-1 norm penalty of output values.
+- Dropout, momentum, SGD
+- Torch 7.0
+### Comments
+Large amount of data and sufficent experiments on applications account for their success.
+
+# 08/18 Basset: CNN
+Kelley DR, Snoek J, Rinn JL. [Basset: learning the regulatory code of the accessible genome with deep convolutional neural networks](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4937568/). Genome Research. 2016;26(7):990-999. doi:10.1101/gr.200535.115.
+
+### Introduction
+The paper presents a open source package [Basset](https://github.com/davek44/Basset) which applys CNNs to learn functional activities of DNA sequences from genomics data.
+
+It enables researchers to perform single sequencing assay in their cell type of interest and simultaneously learn that cell’s chromatin accessibility code and annotate every mutation in the genome with its influence on present accessibility and latent potential for accessibility. 
+
+### Model
+The basic structure is the same as DeepSEA, 3 layer CNNs(max pool+ReLU), with sigmoid nonlinearity maps performed on the output layer.
+### Experiments and applications
+- DNA sequence analysis: predicts the cell-specific functional activity  of sequences
+- - Basset outperforms gkm-SVM on predicting the accessibility of a set of test sequences in 164 cell types.
+- Recover unknown protein binding motifs
+- *In silico saturation mutagenesis pinpoints nucleotides
+  driving accessibility*: 
+  - Saturation mutagenesis experiments, in which every mutation to a sequence is tested, are a powerful tool for dissecting the exact nucleotides driving a functional activity. 
+  - use Basset to predicte accessibility for mutated sequences
+- Enable genomic variant interpretation
+- - *Basset predicts greater accessibility changes for likely causal GWAS SNPs*: Basset assigns greater SNP accessibility difference (SAD) scores to likely causal GWAS SNPs (PICS probability >0.5) versus unlikely nearby SNPs 
+- Basset performs better if the model is trained on data from appropriate cell type instead of large-scale mapping projects
+### Discussion
+
+Predicting the functional output of DNA sequences is a fundamental problem in computational biology with a long history of approaches,  the shortcomings of the previously approaches are:
+
+- most sequence kernel approaches immediately throw away position information to represent DNA as vectors of k-mer counts (Ghandi et al. 2014).
+
+- Position-specific sequence kernels exist, but they greatly increase
+  the dimensionality of the raw input space to which the sequence
+  is initially mapped. 
+
+In contrast, CNNs  naturally consider positional relationships between sequence signals and is computational efficient.
