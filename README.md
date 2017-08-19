@@ -236,6 +236,6 @@ In general, the method is able to accurately classify disease-causing variants a
 
 ### Model: Deep Bayesian Learnig
 - They assemble the human splicing regulatory model using Bayesian learning, each single model is a two-layer network with hidden units shared accross tissues(shared same set of hidden variables). By Bayes they mean *Kullback–Leibler divergence* of the target pattern for an exon and the prediction made by the regulatory model not trained on this exon, see page 9/83 in [Supplementory materials](http://science.sciencemag.org/content/sci/suppl/2014/12/17/science.1254806.DC1/Xiong.SM-corrected.pdf).
-- Fitting a single model using a standard maximum likelihood learning method suffers severely from overfitting, so they adopted a Bayesian Markov chain Monte Carlo (MCMC) approach to search over billions of models with different structure and parameter values.
+- Fitting a single model using a standard maximum likelihood learning method suffers severely from overfitting, so they adopted a *Bayesian Markov chain Monte Carlo (MCMC)* approach to search over billions of models with different structure and parameter values.
 
 
