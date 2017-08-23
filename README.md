@@ -22,6 +22,8 @@
 
 [08/18 Deep Bayes: splicing code for genetic determinants of disease](#0818-deep-bayes-splicing-code-for-genetic-determinants-of-disease)
 
+[08/22 Population Inference](#0822-population-inference)
+
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
 Quang D, Xie X. [DanQ: a hybrid convolutional and recurrent deep neural network for quantifying the function of DNA sequences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4914104/)[J]. Nucleic acids research, 2016, 44(11): e107-e107.
@@ -238,4 +240,31 @@ In general, the method is able to accurately classify disease-causing variants a
 - They assemble the human splicing regulatory model using Bayesian learning, each single model is a two-layer network with hidden units shared accross tissues(shared same set of hidden variables). By Bayes they mean *Kullback–Leibler divergence* of the target pattern for an exon and the prediction made by the regulatory model not trained on this exon, see page 9/83 in [Supplementory materials](http://science.sciencemag.org/content/sci/suppl/2014/12/17/science.1254806.DC1/Xiong.SM-corrected.pdf).
 - Fitting a single model using a standard maximum likelihood learning method suffers severely from overfitting, so they adopted a *Bayesian Markov chain Monte Carlo (MCMC)* approach to search over billions of models with different structure and parameter values.
 
+# 08/22: Population Inference
 
+Sheehan, Sara, and Yun S. Song. [Deep learning for population genetic inference](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004845). PLoS computational biology 12.3 (2016): e1004845.
+
+### Introduction
+Statistical inference for population genetics can be challenging since it is difficult to comput the likelihood of complex population genetic models both computationally and theoritically. Statistics alone can be infeasible and thus intractable when we want a further insight into the problem beyond predction. Therefore, this paper propose a novel *likelihood-free* inference framework to "estimate population genetic parameters and learn informative features of DNA sequence data".
+
+"(page 2 of 28)Motivated by *Drosophila* data, where previous demographic estimates may have been confounded by pervasive selection, and the reverse also occurs as selection estimates being confounded by demography", the paper aims on a joint inference of demography and selection. 
+
+
+Few previous works have addressed both population size changes and selection. And a wilded used  likelihood-free method, Approximate Bayesian Computation (ABC) suffers from the problem of "curse of dimensionality". Therefore, the paper focus on a challenging work of *jointly* predicting demography and selection, which are continuous parameters and categorical distributions, respectively.
+
+### Model Details
+- Initialize the DNN(MLP) by auto-encoders. (stacked AEs)
+**Note**: in Table 6 of their paper, they provide a **confusion matrix** to demonstrate the effectiveness of their pre-trainning.(it's new to me but I won't comment on the reasonableness of this metric)
+- L-2 and KL divergent(discussed later) penalty
+
+### Novelty
+- **A KL divergence term is added in the cost function to ensure sparsity. This method is at least novel for me.** See page 19 of 28 in [this paper](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004845). 
+
+- Fisrt employ deep learning in population genomics
+- First jointly inferring demography and selection
+  motivated by Drosophila genome, which are continuous parameters and categorical distributions, respectively.
+
+### Limitation
+- Still partially rely on statistics, the model depends on PSMC for obtaining time change points. 
+- manually extract input features from genes.(but it is reasonable, since this paper is a poineering work of applying DL in population genetics)
+- In page 12 of 28, they perform a permutation tesing and a perturbation approach to determine the most informative statistics. But later methods like salient maps are suitable for discovering informtive features, though these methods are proposed after this paper(2015). 
