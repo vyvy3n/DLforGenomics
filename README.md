@@ -253,7 +253,10 @@ Statistical inference for population genetics can be challenging since it is dif
 Few previous works have addressed both population size changes and selection. And a wilded used  likelihood-free method, Approximate Bayesian Computation (ABC) suffers from the problem of "curse of dimensionality". Therefore, the paper focus on a challenging work of *jointly* predicting demography and selection, which are continuous parameters and categorical distributions, respectively.
 
 ### Model Details
+The model structure is basic Deep Neural Networks(Multi-Layer Perception).
+
 - Initialize the DNN(MLP) by auto-encoders. (stacked AEs)
+
 **Note**: in Table 6 of their paper, they provide a **confusion matrix** to demonstrate the effectiveness of their pre-trainning.(it's new to me but I won't comment on the reasonableness of this metric)
 - L-2 and KL divergent(discussed later) penalty
 
