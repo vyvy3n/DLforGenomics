@@ -24,6 +24,8 @@
 
 [08/22 Population Inference](#0822-population-inference)
 
+[08/23 DeepCNF: Protein Secondary Structure](#0823-deepcnf-protein-secondary-structure)
+
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
 Quang D, Xie X. [DanQ: a hybrid convolutional and recurrent deep neural network for quantifying the function of DNA sequences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4914104/)[J]. Nucleic acids research, 2016, 44(11): e107-e107.
@@ -271,3 +273,9 @@ The model structure is basic Deep Neural Networks(Multi-Layer Perception).
 - Still partially rely on statistics, the model depends on PSMC for obtaining time change points. 
 - manually extract input features from genes.(but it is reasonable, since this paper is a poineering work of applying DL in population genetics)
 - In page 12 of 28, they perform a permutation tesing and a perturbation approach to determine the most informative statistics. But later methods like salient maps are suitable for discovering informtive features, though these methods are proposed after this paper(2015). 
+
+# 08/23 DeepCNF: Protein Secondary Structure
+
+Wang, S., Peng, J., Ma, J., & Xu, J. (2016). [Protein secondary structure prediction using deep convolutional neural fields](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4707437/). Scientific reports, 6.
+
+
