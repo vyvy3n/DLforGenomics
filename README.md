@@ -278,4 +278,24 @@ The model structure is basic Deep Neural Networks(Multi-Layer Perception).
 
 Wang, S., Peng, J., Ma, J., & Xu, J. (2016). [Protein secondary structure prediction using deep convolutional neural fields](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4707437/). Scientific reports, 6.
 
+### Introduction
+
+A protein’s precise structure is closely related to its interaction with other molecules and is thus incredibly important in the design of drugs or enzymes. Though the 3D structure of a protein is mostly determined by its amino acid sequene, it is still challenging to predict protein structure from sequence alone. 
+
+Data: Infrared Spectroscopy,  Far-UV Circular Dichroism, Nuclear Magnetic Resonance Spectroscopy
+
+### Model 
+
+##### Structure
+
+The paper developed a hybrid model of Deep Convolutional Neural Nets and Conditional Neural Fields. Conditional Neural Fields (CNF) are an extension of Conditional Random Fields (CRFs)
+
+![imgae](./figures/update-2017-08-23-DeepCNF.png)
+
+##### Optimization
+- L-2 regularization (this is the only one hyper-parameter in this DL model)
+- L-BFGS
+
+### Contrbution
+They achieved 84.9% Q3 accuracy on predicting protein sencondary structure only by its sequence information, breaking the record of  ~80% which last(???lasts) for decades. 
 
