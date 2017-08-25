@@ -26,6 +26,8 @@
 
 [08/23 DeepCNF: Protein Secondary Structure](#0823-deepcnf-protein-secondary-structure)
 
+[08/24 VAE: chemical design](#0824-VAE-chemical-design)
+
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
 Quang D, Xie X. [DanQ: a hybrid convolutional and recurrent deep neural network for quantifying the function of DNA sequences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4914104/)[J]. Nucleic acids research, 2016, 44(11): e107-e107.
@@ -280,7 +282,7 @@ Wang, S., Peng, J., Ma, J., & Xu, J. (2016). [Protein secondary structure predic
 
 ### Introduction
 
-A protein’s precise structure is closely related to its interaction with other molecules and is thus incredibly important in the design of drugs or enzymes. Though the 3D structure of a protein is mostly determined by its amino acid sequene, it is still challenging to predict protein structure from sequence alone. 
+A protein’s precise structure is closely related to its interaction with other molecules and is thus incredibly important in the design of drugs or enzymes. Though the 3D structure of a protein is mostly determined by its amino acid sequene, it is still challenging to predict protein structure from sequence alone. The paper develop a hybird deep architecture trying to capture both the complex sequence-structure relationship and also protein secondary structure label correlation among adjacent residues. Their DeepCNFcombines the advantages of both conditional neural fields and deep convolutional neural networks.
 
 Data: Infrared Spectroscopy,  Far-UV Circular Dichroism, Nuclear Magnetic Resonance Spectroscopy
 
@@ -299,3 +301,24 @@ The paper developed a hybrid model of Deep Convolutional Neural Nets and Conditi
 ### Contrbution
 They achieved 84.9% Q3 accuracy on predicting protein sencondary structure only by its sequence information, breaking the record of  ~80% which last(???lasts) for decades. 
 
+# 08/24 VAE: chemical design
+
+### Introduction
+The paper developed variantional auto-encoder while the input sequence is a text-based representation of  moleculars from SMILES string training data.
+##### Data
+- 250l drug-like commercially avaliable molecules
+- 100k computationally generated OLED molecules
+##### Challenges of drug design
+The goal of drug design is to propose novel molecules that optimally meet several desired properties. For this purpose, usually people need to search and optimize within the super high dimensional space of chemical compounds. However, optimizing in the molecular space for drug design is extremely challenging since the space is extremely large, discrete and unstructured.
+
+Current methods are either an exhausitve serch or a discrete local search. The exhaustive serach is monolithic, costly and mannul assembly is also required. The discrete local search is not effective in that there is no guidance for directions. \cite{VAEchemical}
+### Model VAE
+- Encoder: 3 conv layers + 2 dense layers
+- Decoder: 1 dense layer + 3 gated recurrent units + softmax output
+
+Since the paper start with the string representation, it is nature to think about adopting RNNs as both and encoder and decoder. The author finally chose CNNs since they observed an improvement when testing CNNs as encoder. This actually can be explained by the presence of repetitive, translationally-invariant substrings that corresponded to chemical substrctures.
+### Comments
+- The paper didn't compare itself with naive auto-encoder.
+- The string-based representation might not well utilize the spatial virants(rotation and translation) of molecules. (graph-based?)
+- One issue with string-encoding approach is that the decoder sometimes produces
+invalid SMILES strings.
