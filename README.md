@@ -26,7 +26,7 @@
 
 [08/23 DeepCNF: Protein Secondary Structure](#0823-deepcnf-protein-secondary-structure)
 
-[08/24 VAE: chemical design](#0824-VAE-chemical-design)
+[08/24 VAE(CNN-en+RNN-de): chemical design](#0824-VAE-CNN-en-RNN-de-chemical-design)
 
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
@@ -301,7 +301,7 @@ The paper developed a hybrid model of Deep Convolutional Neural Nets and Conditi
 ### Contrbution
 They achieved 84.9% Q3 accuracy on predicting protein sencondary structure only by its sequence information, breaking the record of  ~80% which last(???lasts) for decades. 
 
-# 08/24 VAE: chemical design
+# 08/24 VAE(CNN-en+RNN-de): chemical design
 
 ### Introduction
 The paper developed variantional auto-encoder while the input sequence is a text-based representation of  moleculars from SMILES string training data.
