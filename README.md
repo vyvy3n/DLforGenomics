@@ -304,6 +304,8 @@ They achieved 84.9% Q3 accuracy on predicting protein sencondary structure only 
 
 # 08/24 VAE(CNN-en+RNN-de): chemical design
 
+Gómez-Bombarelli, R., Duvenaud, D., Hernández-Lobato, J. M., Aguilera-Iparraguirre, J., Hirzel, T. D., Adams, R. P., & Aspuru-Guzik, A. (2016). [Automatic chemical design using a data-driven continuous representation of molecules](https://arxiv.org/abs/1610.02415). arXiv preprint arXiv:1610.02415.
+
 ### Introduction
 The paper developed variantional auto-encoder while the input sequence is a text-based representation of  moleculars from SMILES string training data.
 ##### Data
@@ -313,7 +315,11 @@ The paper developed variantional auto-encoder while the input sequence is a text
 The goal of drug design is to propose novel molecules that optimally meet several desired properties. For this purpose, usually people need to search and optimize within the super high dimensional space of chemical compounds. However, optimizing in the molecular space for drug design is extremely challenging since the space is extremely large, discrete and unstructured.
 
 Current methods are either an exhausitve serch or a discrete local search. The exhaustive serach is monolithic, costly and mannul assembly is also required. The discrete local search is not effective in that there is no guidance for directions. \cite{VAEchemical}
-### Model VAE
+### Model 
+##### Bayesian optimization of molecules 
+[See page 5 of 23 in the paper](https://arxiv.org/abs/1610.02415).
+
+##### VAE
 - Encoder: 3 conv layers + 2 dense layers
 - Decoder: 1 dense layer + 3 gated recurrent units + softmax output
 
