@@ -26,7 +26,7 @@
 
 [08/23 DeepCNF: Protein Secondary Structure](#0823-deepcnf-protein-secondary-structure)
 
-[08/24 VAE(CNN-en+RNN-de): chemical design](#0824-VAE-CNN-en-RNN-de-chemical-design)
+[08/24 VAE(CNN-en+RNN-de): chemical design](#0824-vaecnn-enrnn-de-chemical-design)
 
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
