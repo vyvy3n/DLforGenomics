@@ -292,6 +292,7 @@ Data: Infrared Spectroscopy,  Far-UV Circular Dichroism, Nuclear Magnetic Resona
 
 The paper developed a hybrid model of Deep Convolutional Neural Nets and Conditional Neural Fields. Conditional Neural Fields (CNF) are an extension of Conditional Random Fields (CRFs)
 
+The loss function used here is derived by Conditional Random Field, trying to account for the SS interdependency among adjacent residues. [See page 7/17 for description of CRF part in DeepCNF](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4707437/)
 ![imgae](./figures/update-2017-08-23-DeepCNF.png)
 
 ##### Optimization
