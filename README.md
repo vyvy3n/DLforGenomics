@@ -28,6 +28,8 @@
 
 [08/24 VAE(CNN-en+RNN-de): chemical design](#0824-vaecnn-enrnn-de-chemical-design)
 
+[08/25 UltraDeep-ResNet: Protein contacts](0825-utradeep-resNet-protein-contacts)
+
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
 Quang D, Xie X. [DanQ: a hybrid convolutional and recurrent deep neural network for quantifying the function of DNA sequences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4914104/)[J]. Nucleic acids research, 2016, 44(11): e107-e107.
@@ -329,3 +331,46 @@ Since the paper start with the string representation, it is nature to think abou
 - The string-based representation might not well utilize the spatial virants(rotation and translation) of molecules. (graph-based?)
 - One issue with string-encoding approach is that the decoder sometimes produces
 invalid SMILES strings.
+
+# 08/25 UltraDeep-ResNet: Protein contacts
+Wang S, Sun S, Li Z, Zhang R, Xu J (2017) [Accurate De Novo Prediction of Protein Contact Map by Ultra-Deep Learning Model](http://journals.plos.org/ploscompbiol/article?rev=1&id=10.1371/journal.pcbi.1005324). PLOS Computational Biology 13(1): e1005324. https://doi.org/10.1371/journal.pcbi.1005324
+
+### Introductoin
+Recent methods for ”de novo protein structure prediction” rely on limited datasets that contain proteins information with a large number of homologues sequences. Therefore, the paper developed an ultra-deep neural network formed by two deep residual neural networks to*predict contacts from a  sequence of amino-acids*. Their model aim to "predict contacts by integrating both evolutionary coupling (EC) information and sequence conservation information through"
+
+Dataset: a subset of proteins from the widely used CASP and CAMEO databases
+
+### Model
+
+![](./figures/0825-UltraDeep.png)
+
+The model consists of two residual nets:
+
+- 1D residual Network: a series of 1D convolutional transformations of sequential features((sequence profile, predicted secondary structure and solvent accessibility). 
+
+  The output of this 1D convolutional network is then converted to a 2-dimensional (2D)
+  matrix by an operation similar to outer product. It is then merged with pairwise features (i.e., co-evolution information, pairwise contact and distance potential) and fed into 2nd residual network.
+
+- 2D residual network: s a series of 2D convolutional transformations of inputs.
+
+The idea is borrowed from cimputer vision, ResNet. The model is using 60-70 convolutoinal layers.
+
+### Applications
+- effective number of sequence homologs
+- contact-assisted protein folding
+  - the quality of a 3D model is measured by TMscore
+
+### Comments
+
+- It is novel in the way they combine both sequential and pairwise features.
+- It is unique in that they "model a contact map as a single image and then conduct pixel-level labeling on the whole image. This allows the model to take into consideration correlation among multiple sequentially-distant residue pairs."
+
+Besides, the following are suggested in the paper:
+
+- The model did a drasitic improvement in contact prediction though the model architecture is not simple enough.
+  - The author wonders if they can improve the accuracy by using more layers (currently 60-70). They was not able to test it due to the limit of GPU memory. They didn't  comment on the training time in their paper, it might be time-consuming to train such net. 
+
+- The model can actually "learn" to construct 3D protein.
+
+  When a query protein has no close templates, their contact-assisted model might have much better quality than TBM model. This imply that the model does not predict contacts by simply copying contacts from the training proteins, it can be useful for when the query protein has no close templates in PDB.
+ 
