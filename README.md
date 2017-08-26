@@ -28,7 +28,7 @@
 
 [08/24 VAE(CNN-en+RNN-de): chemical design](#0824-vaecnn-enrnn-de-chemical-design)
 
-[08/25 UltraDeep-ResNet: Protein contacts](0825-utradeep-resNet-protein-contacts)
+[08/25 UltraDeep-ResNet: Protein contacts](#0825-ultradeep-resnet-protein-contacts)
 
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
