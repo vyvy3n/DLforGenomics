@@ -30,6 +30,7 @@
 
 [08/25 UltraDeep-ResNet: Protein contacts](#0825-ultradeep-resnet-protein-contacts)
 
+[08/26 conv-B-LSTM+attention: subcellular localization](#0826-conv-b-lstm-ttention-subcellular-localization)
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
 Quang D, Xie X. [DanQ: a hybrid convolutional and recurrent deep neural network for quantifying the function of DNA sequences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4914104/)[J]. Nucleic acids research, 2016, 44(11): e107-e107.
@@ -374,3 +375,46 @@ Besides, the following are suggested in the paper:
 
   When a query protein has no close templates, their contact-assisted model might have much better quality than TBM model. This imply that the model does not predict contacts by simply copying contacts from the training proteins, it can be useful for when the query protein has no close templates in PDB.
  
+# 08/26 conv-B-LSTM+attention: subcellular localization
+### Introduction
+The paper developed a convolutional LSTM to address the problem of **protein sorting** or **subcellular localization**. They predict subcellular location of proteins given only the sequence information, and their high accuracy outperforms the current algorithms in the task.
+
+##### Background
+*Subcellular localization* is to analyze biological sequences and predict to which subcellular compartment a protein belongs. Current methods generally rely on neural networks and support vector machines (SVM) and involve hand-generated features.
+
+However, there is no natural way of handling sequences of varying length in the large hand engineered systems relying on extensive metadata such as GO terms and evolutionary phylogeny. Therefore, the paper utilize the ability of LSTM to hanlding the sequence information.
+
+### Model
+BLSTM(bi-directional LSTM) is used for RNN, an attention function is adopted to assign importance to each hidden state in BLSTM. 
+##### Model Structures
+Totally there are three models proposed:
+1. R-LSTM (vanilla BLSTM)
+2. A-LSTM ("attention model" used in hidden layer)
+3. ensemble 10 R-LSTM
+##### Some details
+- 1D convolution layer(ReLU) between inputs and LSTM(tanh)
+- ADAM optimizer
+- 50% dropout
+
+### Visualization
+The paper did efforts on visualization part.
+
+- For convolutional weights: use a PSSM (position specific scoring matrix) 
+- For attention: plot the context vector (weighted sum of hidden vectors)
+- For regular LSTM: plot the last hidden state
+- t-SNE of the hidden representations
+- - the clusters from regions close together in the cell are close together here
+
+### Benchmark & Comparison
+The authors benchmark their performance to MultiLoc1/2 and SherLoc2, which are all *SVM-based* approaches that utilize the human-engineered features.
+
+- MultiLoc1(2006): makes use of features like overall amino acid composition and the presence of known sorting signals;
+- MultiLoc2(2009): extends 1 to include phylogenetic (PhyloLoc) profiles and GO terms
+     (GOLoc). 
+- SherLoc2(2009): incorporates the same features as MultiLoc2, but also makes use of the user’s background knowledge of the protein, as the user can provide a short description of the protein. 
+
+### Novelty
+- visualization(as stated above)
+- can make prediction solely from the sequence information
+- ensemble idea in DL
+- The comparison results between thie and previoius benchmark models show a great improvement in this model in the way it can achieve equal or much better prediction when there is no human-engineered features involved.
