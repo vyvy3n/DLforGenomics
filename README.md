@@ -30,7 +30,7 @@
 
 [08/25 UltraDeep-ResNet: Protein contacts](#0825-ultradeep-resnet-protein-contacts)
 
-[08/26 conv-B-LSTM+attention: subcellular localization](#0826-conv-b-lstm-ttention-subcellular-localization)
+[08/26 conv-B-LSTM+attention: subcellular localization](#0826-conv-b-lstmattention-subcellular-localization)
 # 08/16 DanQ: CNN 1 layer+BLSTM
 
 Quang D, Xie X. [DanQ: a hybrid convolutional and recurrent deep neural network for quantifying the function of DNA sequences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4914104/)[J]. Nucleic acids research, 2016, 44(11): e107-e107.
