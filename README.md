@@ -1,11 +1,14 @@
 # Deep Learning for Genomics: A Concise Overview
 This repo is where I kept paper revewing notes at the very beginning. Later work was summarized into a review paper: https://arxiv.org/abs/1802.00810
 
+This papers review some excellent work of deep learning applications in Genomics, aiming to point out some challenges in DL for genomics as well as promising directions worthwhile to think. 
 
+<!--
 - `papers` floder consists of papersI read.
-- `readings` folder consists of introductory papers or lecture notes for me to learn.
+- `readings` folder consists of introductory papers or lecture notes for me to learn. 
+-->
 
-
+# Previous Notes
 ## Useful Resources:
 - [Deep Learning in Genomics and Biomedicine, Stanford CS273B](https://canvas.stanford.edu/courses/51037)
 - [A List of DL in Biology on Github]( https://github.com/hussius/deeplearning-biology)
