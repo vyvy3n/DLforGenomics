@@ -1,5 +1,6 @@
 # Deep Learning for Genomics: A Concise Overview
-This repo is where I kept paper revewing notes at the very beginning. Later work was summarized into a review paper: https://arxiv.org/abs/1802.00810
+This repo is where I kept paper revewing notes at the very beginning. 
+### Later work was summarized into a review paper: https://arxiv.org/abs/1802.00810
 
 This paper reviews some excellent work of deep learning applications in Genomics, aiming to point out some challenges in DL for genomics as well as promising directions worthwhile to think. 
 
